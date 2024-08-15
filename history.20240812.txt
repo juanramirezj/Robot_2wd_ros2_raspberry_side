@@ -1,0 +1,966 @@
+    1  sudo apt update
+    2  sudo apt upgrade
+    3  sudo reboot
+    4  locale
+    5  sudo apt install software-properties-common
+    6  sudo add-apt-repository universe
+    7  sudo apt update && sudo apt install curl -y
+    8  sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+    9  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+   10  sudo apt update
+   11  sudo apt upgrade
+   12  sudo apt install ros-humble-ros-base
+   13  sudo apt install ros-dev-tools
+   14  vi .bashrc
+   15  source .bashrc
+   16  ros2 run demo_nodes_cpp talker
+   17  ros2
+   18  sudo poweroff
+   19  sudo vi /etc/netplan/01-netcfg.yaml
+   20  cd /etc
+   21  ls
+   22  ls net*
+   23  cd netplan
+   24  ls
+   25  vi 50-cloud-init.yaml 
+   26  clear
+   27  cd 
+   28  ls
+   29  mkdir rbpi4
+   30  cd rbpi4
+   31  ls
+   32  code .
+   33  code
+   34  vsc
+   35  ls
+   36  cat leeme.txt
+   37  ls
+   38  rm *
+   39  mkdir robot_ws
+   40  cd robot_ws/
+   41  mkdir src
+   42  cd src
+   43  git clone http://github.com/joshnewans/serial_motor_demo.git
+   44  ls
+   45  cd ..
+   46  colcon build --symlink-install
+   47  ls
+   48  source install/setup.bash
+   49  ls /dev/
+   50  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494
+   51  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=57600 -p loop_rate:=30 -p encoder_cpr:=2494
+   52  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=True
+   53  sudo poweroff
+   54  ls
+   55  cd rbpi4
+   56  ls
+   57  cd robot_ws/
+   58  source install/setup.bash
+   59  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_crp:=2494
+   60  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_crp:=2494 serial_debug:=True
+   61  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_crp:=2494 -p serial_debug:=True
+   62  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=True
+   63  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=False
+   64  sudo poweroff
+   65  minicom --device /dev/ttyACM0
+   66  sudo apt install minicom
+   67  ls /dev/
+   68  minicom --device /dev/ttyACM0
+   69  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=True
+   70  ls
+   71  cd rbpi4
+   72  ls
+   73  cd robot_ws/
+   74  source install/setup.bash
+   75  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=True
+   76  sudo poweroff
+   77  sudo apt install libraspberry-bin v4l-utils ros-humble-v4l2-camera
+   78  sudo apt install libraspberrypi-bin v4l-utils ros-humble-v4l2-camera
+   79  apt get update
+   80  sudo apt get update
+   81  sudo apt install libraspberrypi-bin v4l-utils ros-humble-v4l2-camera
+   82  sudo apt update
+   83  sudo apt install libraspberrypi-bin v4l-utils ros-humble-v4l2-camera
+   84  sudo poweroff
+   85  sudo apt update
+   86  sudo apt upgrade
+   87  sudo reboot
+   88  ls
+   89  groups
+   90  sudo usermod -aG video administrator
+   91  groups
+   92  sudo reboot
+   93  vcgencmd get_camera
+   94  sudo poweroff
+   95  vcgencmd get_camera
+   96  ls /video
+   97  ls /dev
+   98  raspistill -k
+   99  v4l2-ctl --list-devices
+  100  sudo apt install ros-humble-image-transport-plugins ros-humble-rqt-image-view
+  101  rrr
+  102  ros2 run v4l2_camera v4l2_camera_node  --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_link_optical
+  103  vcgencmd get_camera
+  104  sudo vi /boot/firmware/config.txt
+  105  sudo reboot
+  106  vcgencmd get_camera
+  107  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:=[640,480]" -p camera_frame_id:=camera_link_optical
+  108  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_link_optical
+  109  sudo vi /boot/firmware/config.txt 
+  110  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_link_optical
+  111  sudo poweroff
+  112  sudo systemctl disable systemd-networkd.service
+  113  sudo reboot
+  114  sudo systemctl enable systemd-networkd.service
+  115  vcgencmd get_camera
+  116  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_link_optical
+  117  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[320,200]" -p camera_frame_id:=camera_link_optical
+  118  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_link_optical
+  119  sudo poweroff
+  120  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p acamera_frame_id:=camera_link_optical
+  121  sudo poweroff
+  122  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p acamera_frame_id:=camera_link_optical
+  123  sudo poweroff
+  124  ls
+  125  cd rbpi4/
+  126  ls
+  127  cd robot_ws/
+  128  ros2 topic list
+  129  ros2 run image_transport republish raw compresssed --ros-ags -r in/compressed:=/image_raw -r out:=/image_raw/compressed
+  130  ros2 run image_transport
+  131  ros2 run image_transport list
+  132  ros2 run image_transport list transports
+  133  ls
+  134  source install/setup.bash
+  135  ros2 run image_transport list transports
+  136  sudo apt install ros-humble-image-transport-plugins
+  137  sudo apt-get install build-essential python-dev python-pip
+  138  sudo pip3 install RPi.GPIO
+  139  pip3
+  140  sudo apt install python3-pip
+  141  sudo pip3 install RPi.GPIO
+  142  sudo apt-get install python-imaging python-smbus
+  143  cd ..
+  144  ls
+  145  cd
+  146  ls
+  147  git clone https://github.com/adafruit/Adafruit_Python_SSD1306.git
+  148  cd Adafruit_Python_SSD1306/
+  149  ls
+  150  sudo python setup.py install
+  151  sudo python3 setup.py install
+  152  ls
+  153  cd Adafruit_SSD1306
+  154  ls
+  155  cd ..
+  156  cd examples/
+  157  ls
+  158  python3 animate.py
+  159  ls
+  160  python3 stats.py
+  161  sudo poweroff
+  162  sudo apt update
+  163  sudo apt upgrade
+  164  ls
+  165  cd Adafruit_Python_SSD1306/
+  166  ls
+  167  cd examples
+  168  ls
+  169  python3 stats.py
+  170  ls
+  171  python3 animate.py
+  172  cd ..
+  173  ls
+  174  cd
+  175  ls
+  176  cd Adafruit_Python_SSD1306/
+  177  ls
+  178  cd examples
+  179  ls
+  180  python3 ipaddr.py
+  181  sudo vi /etc/rc.local
+  182  ls -l /etc/rc.local
+  183  chmod 755 /etc/rc.local
+  184  sudo chmod 755 /etc/rc.local
+  185  ls -l /etc/rc.local
+  186  sudo reboot
+  187  ls
+  188  sudo vi /etc/rc.local
+  189  sudo reboot
+  190  sudo poweroff
+  191  cd rob
+  192  ls
+  193  cd rbpi4
+  194  ls
+  195  cd robot_ws/
+  196  ls
+  197  source install/setup.bash
+  198  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=False
+  199  cd rbpi4/
+  200  ls
+  201  cd robot_ws/
+  202  source install/setup.bash
+  203  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p acamera_frame_id:=camera_link_optical
+  204  sudo poweroff
+  205  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p acamera_frame_id:=camera_link_optical
+  206  history
+  207  vcgencmd get_camera
+  208  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_link_optical
+  209  sudo poweroff
+  210  ros2 run image_transport republish raw compresssed --ros-ags -r in/compressed:=/image_raw -r out:=/image_raw/compressed
+  211  ros2 run image transport list transports
+  212  ros2 run image_transport list transports
+  213  ls /sys/class/net
+  214  sudo vi /etc/netplan/50-cloud-init.yaml 
+  215  vcgencmd get_camera
+  216  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_link_optical
+  217  sudo apt update
+  218  sudo apt upgrade
+  219  sudo poweroff
+  220  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_link_optical
+  221  pwd
+  222  source /opt/ros/humble/setup.bash
+  223  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_link_optical
+  224  libcamera-hello
+  225  sudo poweroff
+  226  vcgencmd get_camera
+  227  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_link_optical
+  228  cd 
+  229  cd Adafruit_Python_SSD1306/
+  230  cd examples/
+  231  ls
+  232  vi ipaddr.py
+  233  sudo vi /etc/rc.local
+  234  sudo reboot
+  235  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_link_optical
+  236  sudo poweroff
+  237  sudo reboot
+  238  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_link_optical
+  239  ros2 run image_transport list_transports
+  240  ros2 run image_transport republish raw compresssed --ros-ags -r in/compressed:=/image_raw -r out:=/image_raw/compressed
+  241  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_link_optical
+  242  ifconfig
+  243  ip addr
+  244  top
+  245  sudo reboot
+  246  ros2 run image_transport republish raw compresssed --ros-ags -r in/compressed:=/image_raw -r out:=/image_raw/compressed
+  247  ros2 run image_transport republish raw compresssed --ros-ags --remap in/compressed:=/image_raW --remap out:=/image_raw/compressed
+  248  ros2 topic list
+  249  ros2 run image_transport republish raw_compresssed --ros-ags -r in/compressed:=/image_raw -r out:=/image_raw/compressed
+  250  ros2 run image transport list transports
+  251  ros2 run image_transport list transports
+  252  source /opt/ros/humble/setup.bash
+  253  ros2 run image_transport list transports
+  254  sudo apt install ros-humble-image-transport-plugins
+  255  ros2 run image_transport republish raw_compresssed --ros-ags -r in/compressed:=/image_raw -r out:=/image_raw/compressed
+  256  ros2 run image_transport list transports
+  257  ros2 run image_transport list_transports
+  258  ros2 run image_transport republish  compresssed --ros-ags -r in/compressed:=/image_raw -r out:=/image_raw/compressed
+  259  ros2 run image_transport republish  image_transport/compresssed --ros-ags -r in/compressed:=/image_raw -r out:=/image_raw/compressed
+  260  ros2 run image_transport republish  image_transport/compresssed_pub --ros-ags -r in/compressed:=/image_raw -r out:=/image_raw/compressed
+  261  ros2 run image_transport republish  _transport/compresssed_pub --ros-ags -r in/compressed:=/image_raw -r out:=/image_raw/compressed
+  262  ros2 run image_transport republish  compresssed_pub --ros-ags -r in/compressed:=/image_raw -r out:=/image_raw/compressed
+  263  ros2 run image_transport republish compressed raw --ros-args -r in/compressed:=/camera/image_raw/compressed -r out:=/camera/my_uncompressed_image
+  264  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_optical_link
+  265  ls
+  266  wget https://get.foxglove.dev/desktop/latest/foxglove-studio-1.87.0-linux-arm64.deb
+  267  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_optical_link
+  268  v4l2-ctd -D
+  269  sudo apt install v4l-utils
+  270  v4l2-ctl -D
+  271  sudo apt install ros-humble-image-transport-plugins
+  272  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_optical_link -p output_encoding:="rgb8"
+  273  sudo poweroff
+  274  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_optical_link -p output_encoding:="rgb8"
+  275  sudo poweroff
+  276  sudo vi /etc/rc.local
+  277  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_optical_link -p output_encoding:="rgb8"
+  278  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_optical_link 
+  279  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_optical_link -p output_encoding:="rgb8"
+  280  ros2
+  281  ros2 doctor
+  282  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_optical_link -p output_encoding:="rgb8"
+  283  sudo poweroff
+  284  ifconfig
+  285  ip addr
+  286  sudo poweroff
+  287  ip addr
+  288  sudo lshw -class network
+  289  ip link show
+  290  sudo apt install net-tools
+  291  ifconfig
+  292  ip  a
+  293  sudo lshw -class
+  294  sudo lshw -class network
+  295  cd /etc/netplan/
+  296  ls
+  297  sudo vi 50-cloud-init.yaml 
+  298  cat 50-cloud-init.yaml 
+  299  sudo vi 50-cloud-init.yaml 
+  300  sudo dhclient -v
+  301  ifconfig
+  302  sudo crontab -e
+  303  exit
+  304  ip a
+  305  sudo ifconfig eth0 up
+  306  ifconfig
+  307  ip a
+  308  exit
+  309  ifconfig
+  310  exit
+  311  ls
+  312  vcgencmd get_camera
+  313  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_optical_link -p output_encoding:="rgb8"
+  314  top
+  315  cd 
+  316  cd Adafruit_Python_SSD1306/
+  317  cd examples/
+  318  cp ipaddr.py ipaddr_only1.py
+  319  vi ipaddr_only1.py 
+  320  sudo vi /etc/rc.local
+  321  sudo reboot
+  322  ip addr
+  323  ls /etc/netplan/
+  324  cd /etc/netplan/
+  325  ls
+  326  cat 50-cloud-init.yaml 
+  327  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_optical_link -p output_encoding:="rgb8"
+  328  v4l2-ctl -D
+  329  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_optical_link
+  330  sudo poweroff
+  331  top
+  332  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_optical_link
+  333  sudo vi /etc/rc.local
+  334  sudo poweroff
+  335  cd Adafruit_Python_SSD1306/
+  336  ls
+  337  cd examples/
+  338  ls
+  339  cp ipaddr.py showtext.py
+  340  vi showtext.py 
+  341  python3 showtext.py 
+  342  vi showtext.py 
+  343  vi showtext.py JUAN
+  344  cat showtext.py 
+  345  python3 showtext.py  JUAN
+  346  sudo vi /etc/rc.local
+  347  vi showtext.py JUAN
+  348  sudo poweroff
+  349  ros2 launch sllidar_ros2 view_sllidar_a1_launch.py
+  350  ls
+  351  cd rbpi4
+  352  ls
+  353  cd robot_ws/
+  354  ls
+  355  source install/setup.bash
+  356  ros2 launch sllidar_ros2 view_sllidar_a1_launch.py
+  357  cd ...
+  358  ls
+  359  cd ..
+  360  ls
+  361  cd ..
+  362  ls
+  363  cd rbpi4
+  364  ls
+  365  cd robot_ws/
+  366  ls
+  367  cd src
+  368  ls
+  369  git clone https://github.com/Slamtec/sllidar_ros2.git
+  370  cd ..
+  371  source /opt/ros/humble/setup.bash
+  372  colcon build --symlink-install
+  373  source ./install/setup.bash
+  374  cat ~/.bashrc
+  375  source ¨/rbpi4/robot_ws/install/setup.bash
+  376  source ~/rbpi4/robot_ws/install/setup.bash
+  377  echo "source ~/rbpi4/robot_ws/install/setup.bash" >> ~/.bashrc
+  378  source ~/.bashrc
+  379  cd src
+  380  ls
+  381  cd sllidar_ros2/
+  382  source scripts/create_udev_rules.sh 
+  383  ros2 launch sllidar_ros2 view_sllidar_a1_launch.py
+  384  ls
+  385  cd launch
+  386  ls
+  387  ros2 launch sllidar_ros2 sllidar_a1_launch.py
+  388  sudo poweroff
+  389  ls
+  390  cd rbpi4/
+  391  ls
+  392  cd robot_ws/
+  393  ls
+  394  cd src
+  395  ls
+  396  cd sllidar_ros2/
+  397  ls
+  398  cd launch/
+  399  ls
+  400  vi view_sllidar_a1_launch.py 
+  401  ls
+  402  cd ..
+  403  ls
+  404  cd rviz
+  405  ls
+  406  vi sllidar_ros2.rviz 
+  407  ifconfig
+  408  ls /sys/class/net
+  409  ls /etc/netplan
+  410  sudo vi /etc/netplan/50-cloud-init.yaml 
+  411  sudo netplan apply
+  412  ip a
+  413  sudo vi /etc/netplan/50-cloud-init.yaml 
+  414  sudo systemctl restart NetworkManager
+  415  sudo reboot
+  416  ifconfig
+  417  cd rbpi4/
+  418  cd robot_ws/
+  419  source install/setup.bash
+  420  ros2 launch sllidar_ros2 sllidar_a1_launch.py
+  421  sudo poweroff
+  422  sudo apt update
+  423  sudo apt upgrade
+  424  sudo poweroff
+  425  minicom --device /dev/ttyAMA0
+  426  ls
+  427  cd rbpi4/
+  428  ls
+  429  cd robot_ws/
+  430  ls
+  431  source install/setup.bash
+  432  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=False
+  433  ls /dev/tty*
+  434  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyAMA0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=False
+  435  ls
+  436  cd rbpi4/
+  437  ls
+  438  cd robot_ws/
+  439  ls
+  440  source install/setup.bash
+  441  ls /dev/tty*
+  442  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyAMACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=True
+  443  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyAMA0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=False
+  444  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=True
+  445  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyAMA0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=True
+  446  sudo reboot
+  447  ls
+  448  cd rbpi4/
+  449  ls
+  450  cd robot_ws/
+  451  source install/setup.bash
+  452  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=True
+  453  minicom --device /dev/ttyACM0
+  454  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=True
+  455  sudo poweroff
+  456  ls
+  457  cd rbpi4/
+  458  ls
+  459  cd robot_ws/
+  460  ls
+  461  cd src
+  462  ls
+  463  cd ..
+  464  ls
+  465  source install/setup.bash
+  466  ros2 topic list
+  467  ros2 note list
+  468  ros2 node list
+  469  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_optical_link -p output_encoding:="rgb8"
+  470  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=True
+  471  source install/setup.bash
+  472  ros2 run serial_motor_demo driver --ros-args -p serial_port:=/dev/ttyACM0 -p baud_rate:=115200 -p loop_rate:=30 -p encoder_cpr:=2494 -p serial_debug:=True
+  473  sudo apt update
+  474  sudo apt upgrade
+  475  ls
+  476  cd rbpi4/
+  477  ls
+  478  cd robot_ws/
+  479  ls
+  480  cd ..
+  481  ls
+  482  cd ..
+  483  ls
+  484  mv rbpi4/robot_ws/ .
+  485  ls
+  486  rm -rf rbpi4
+  487  ls
+  488  cd robot_ws/
+  489  ls
+  490  rm -rf build install log
+  491  cd src
+  492  ls
+  493  cd ..
+  494  colcon build
+  495  ls
+  496  source install/setup.bash
+  497  ros2 launch sllidar_ros2 view_sllidar_a1_launch.py 
+  498  ros2 launch sllidar_ros2 sllidar_a1_launch.py
+  499  history
+  500  ls /dev/tty*
+  501  ros2 services list
+  502  ros2 service list
+  503  ros2 launch sllidar_ros2 sllidar_a1_launch.py
+  504  sudo poweroff
+  505  os2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_optical_link -p output_encoding:="rgb8"
+  506  ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=camera_optical_link -p output_encoding:="rgb8"
+  507  sudo poweroff
+  508  ifconfig
+  509  pwd
+  510  ls /sys/class/net
+  511  ls /etc/netplan
+  512  sudo vi /etc/netplan/50-cloud-init.yaml 
+  513  sudo netplan apply
+  514  sudo reboot
+  515  ifconfig
+  516  sudo apt update
+  517  sudo apt upgrade
+  518  sudo reboot
+  519  pwd
+  520  ls
+  521  cd robot_ws/
+  522  ls
+  523  cd ..
+  524  ls
+  525  sudo clone -b humble https://github.com/ros-controls/ros2_control_demos.git
+  526  git  clone -b humble https://github.com/ros-controls/ros2_control_demos.git
+  527  ls
+  528  cd ros2_control_demos/
+  529  ls
+  530  cd example_2
+  531  ls
+  532  cd ~/robot_ws/
+  533  ls
+  534  cd src
+  535  cp -r ~/ros2_control_demos/example_2 .
+  536  ls
+  537  colcon build --symlink-install
+  538  dle
+  539  ls
+  540  rm -rf build install log
+  541  cd ..
+  542  colcon build --symlink-install
+  543  cd ..
+  544  ls
+  545  cd ros2_control_demos/
+  546  ls
+  547  pwd
+  548  mkdir ros_demos_ws
+  549  mv ros2_control_demo ros_demos_ws
+  550  mv ros2_control_demos ros_demos_ws
+  551  ls
+  552  cd ..
+  553  l
+  554  cd ros2_control_demos/
+  555  ls
+  556  mv ros_demos_ws ../
+  557  cd ..
+  558  cd ros_demos_ws
+  559  ls
+  560  mkdir src
+  561  cd src
+  562  ls ¨
+  563  ls ~
+  564  mv ~/ros2_control_demos/ .
+  565  ls
+  566  cd ros2_control_demos/
+  567  ls
+  568  mv -r * ..
+  569  mv * ..
+  570  ls
+  571  cd ..
+  572  ls
+  573  rm -r ros2_control_demos
+  574  cd ros2_control_demos
+  575  ls
+  576  cd ..
+  577  rm -r ros2_control_demos
+  578  ls
+  579  cd ..
+  580  colcon build --symlink-install
+  581  cd ..
+  582  ls
+  583  cd robot_ws/
+  584  ls
+  585  cd src
+  586  ls
+  587  cd ..
+  588  sudo apt install ros-humble-ros2-control ros-humble-ros2-controllers
+  589  ls
+  590  colcon build --symlink-install
+  591  ls
+  592  rm -rf build install log
+  593  colcon build --symlink-install
+  594  source install/saetup.bash
+  595  source install/setup.bash
+  596  sudo poweroff
+  597  sudo apt update
+  598  sudo apt upgrade
+  599  sudo apt install libserial-dev
+  600  pwd
+  601  ls
+  602  cd robot_ws/
+  603  ls
+  604  ls src
+  605  colcon build --symlink-install
+  606  source install/setup.bash
+  607  ros2 launch ros2_control_demo_example_2 diffbot.launch.py
+  608  col
+  609  colcon build --symlink-install
+  610  source install/setup.bash
+  611  colcon build --symlink-install
+  612  source install/setup.bash
+  613  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  614  ls
+  615  cd src
+  616  git status
+  617  ls
+  618  git init
+  619  git add .
+  620  ls
+  621  git status
+  622  git commit -m "first commit"
+  623  git config --global user.name 'Juan Ramirez Jardua'
+  624  git config --global user.email 'lch_jramirez@hotmail.com'
+  625  git status
+  626  git commit -m "first commit"
+  627  echo "# Robot 2WD based on ROS2 humble - Raspberry side on the robot"> README.md
+  628  git add README.md 
+  629  git commig -m "first commit"
+  630  git commit -m "first commit"
+  631  git branch -M main
+  632  git remote add origin https://github.com/juanramirezj/Robot_2wd_ros2_raspberry_side.git
+  633  git push -u origin main
+  634  cd ..
+  635  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  636  sudo poweroff
+  637  sudo apt update
+  638  sudo apt upgrade
+  639  ls
+  640  cd robot_ws/
+  641  ls
+  642  colcon build --symlink-install
+  643  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  644  source install/setup.bash
+  645  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  646  cat /home/administrator/.ros/log/2024-06-02-09-56-10-396600-2wdros-2724/
+  647  cd  /home/administrator/.ros/log/2024-06-02-09-56-10-396600-2wdros-2724/
+  648  ls
+  649  cat launch.log 
+  650  sudo apt install ros-humble-joint-state-publisher
+  651  cd
+  652  ls
+  653  cd robot_ws/
+  654  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  655  sudo apt install ros-humble-controller_manager
+  656  colcon build --symlink-install
+  657  source install/setup.bash
+  658  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  659  colcon build --symlink-install
+  660  source install/setup.bash
+  661  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  662  cd ..
+  663  ls
+  664  cd ros_demos_ws/
+  665  ls
+  666  cd src
+  667  ls
+  668  cd ..
+  669  ls
+  670  colcon build --sysmink-install
+  671  colcon build --symlink-install
+  672  source install/setup.bash
+  673  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  674  cd
+  675  ls
+  676  cd robot_ws/
+  677  ls
+  678  source install/setupb.ash
+  679  source install/setup.bash
+  680  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  681  sudo apt install ros-humble-xacro
+  682  colcon build --symlink-install
+  683  source install/setup.bash
+  684  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  685  ls /dev
+  686  ls /dev/tty*
+  687  minicom --device /dev/ttyACM0
+  688  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  689  sudo apt install ros-humble-controller-manager
+  690  cd ..
+  691  ls
+  692  cd ros_demos_ws/
+  693  ls
+  694  source install/setup.bash
+  695  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  696  cd ..
+  697  cd robot_ws/
+  698  ls
+  699  source install/setup.bash
+  700  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  701  colcon build --symlink-install
+  702  source install/setup.bash
+  703  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  704  colcon build --symlink-install
+  705  source install/setup.bash
+  706  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  707  colcon build --symlink-install --packages-select example_2
+  708  colcon build --symlink-install
+  709  colcon build --symlink-install --packages-select ros2_control_demo_example_2
+  710  source install/setup.bash
+  711  ros2 launch ros2_control_demo_example_2 diffbot2.launch.py 
+  712  ls
+  713  rm -rf build install log
+  714  cd ..
+  715  ls
+  716  cd ros_demos_ws/
+  717  ls
+  718  rm -rf build install log
+  719  cd ..
+  720  ls
+  721  cd robot_ws/
+  722  ls
+  723  colcon build --symlink-install --packages-select ros2_control_demo_example_2
+  724  colcon build --symlink-install 
+  725  source install/setup.bash
+  726  ros2 launch ros2_control_demo_example_2 diffbot2.launch.py 
+  727  ls
+  728  cd src
+  729  ls
+  730  ls ~/
+  731  ls ~/ros2_demos_ws
+  732  ls ~/ros_demos_ws
+  733  ls ~/ros_demos_ws/src
+  734  cp ~/ros_demos_ws/src/ros2_control_demo_description/ .
+  735  cp -r ~/ros_demos_ws/src/ros2_control_demo_description/ .
+  736  ls
+  737  cd ..
+  738  ls
+  739  colcon build --symlink-install 
+  740  ls
+  741  source install/setup.bash
+  742  ros2 launch ros2_control_demo_example_2 diffbot2.launch.py 
+  743  colcon build --symlink-install 
+  744  ros2 launch ros2_control_demo_example_2 diffbot2.launch.py 
+  745  colcon build --symlink-install 
+  746  source install/setup.bash
+  747  ros2 launch ros2_control_demo_example_2 diffbot2.launch.py 
+  748  colcon build --symlink-install 
+  749  source install/setup.bash
+  750  ros2 launch ros2_control_demo_example_2 diffbot2.launch.py 
+  751  sudo poweroff
+  752  ls
+  753  sudo apt update
+  754  sudo apt upgrade
+  755  ls
+  756  pwd
+  757  ls
+  758  cd robot_ws/
+  759  ls
+  760  source install/setup.bash
+  761  hostory |grep libserial-dev
+  762  history |grep libserial-dev
+  763  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  764  xacro
+  765  colcon build --symlink-install 
+  766  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  767  xacro /home/administrator/robot_ws/src/ros2_control_demo_description/
+  768  cd /home/administrator/robot_ws/src/ros2_control_demo_description/
+  769  ls
+  770  cd  ..
+  771  ls
+  772  cd ..
+  773  ls
+  774  rm -rf build install log
+  775  colcon build --symlink-install 
+  776  ls
+  777  source install/setu
+  778  source install/setup.bash
+  779  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  780  xacro /home/administrator/robot_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/urdf/diffbot.urdf.xacro
+  781  colcon build --symlink-install 
+  782  xacro /home/administrator/robot_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/urdf/diffbot.urdf.xacro
+  783  source install/setup.bash
+  784  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  785  colcon build --symlink-install 
+  786  source install/setup.bash
+  787  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  788  colcon build --symlink-install 
+  789  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  790  colcon build --symlink-install 
+  791  source install/setup.bash
+  792  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  793  colcon build --symlink-install 
+  794  source install/setup.bash
+  795  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  796  colcon build --symlink-install 
+  797  source install/setup.bash
+  798  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  799  colcon build --symlink-install 
+  800  source install/setup.bash
+  801  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  802  ls
+  803  rm -rf build install log
+  804  colcon build --symlink-install 
+  805  sudo poweroff
+  806  ls
+  807  cd robot_ws/
+  808  cd src
+  809  ls
+  810  cd example_2/
+  811  ls
+  812  cd description/
+  813  cd urdf/
+  814  ls
+  815  vi diffbot.urdf.xacro 
+  816  sudo poweroff
+  817  ls
+  818  cd robot_ws/
+  819  ls
+  820  xacro 
+  821  xacro /?
+  822  xacro --help
+  823  opt/ros/humble/bin/xacro --verbosity=4 /home/administrator/robot_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/urdf/diffbot.urdf.xacro 
+  824  source install/setup.bash
+  825  opt/ros/humble/bin/xacro --verbosity=4 /home/administrator/robot_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/urdf/diffbot.urdf.xacro 
+  826  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  827  /opt/ros/humble/bin/xacro --verbosity=4 /home/administrator/robot_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/urdf/diffbot.urdf.xacro 
+  828  exit
+  829  ls
+  830  cd robot_ws/
+  831  source install/setup.bash
+  832  ls
+  833  ros2 topic list
+  834  ls
+  835  cd robot_ws/
+  836  source install/setup.bash
+  837  ros2 launch ros2_control_demo_example_2 diffbot2b.launch.py 
+  838  source install/setup.bash
+  839  ros2 launch ros2_control_demo_example_2 diffbot2b.launch.py 
+  840  source install/setup.bash
+  841  ros2 launch ros2_control_demo_example_2 diffbot2b.launch.py 
+  842  sudo apt update
+  843  sudo apt upgrade
+  844  ls
+  845  pwd
+  846  ls
+  847  cd robot_ws/
+  848  ls
+  849  colcon build --symlink-install 
+  850  source install/setup.bash
+  851  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  852  colcon build --symlink-install 
+  853  source install/setup.bash
+  854  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  855  colcon build --symlink-install 
+  856  source install/setup.bash
+  857  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  858  colcon build --symlink-install 
+  859  source install/setup.bash
+  860  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  861  colcon build --symlink-install 
+  862  source install/setup.bash
+  863  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  864  colcon build --symlink-install 
+  865  source install/setup.bash
+  866  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  867  colcon build --symlink-install 
+  868  source install/setup.bash
+  869  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  870  colcon build --symlink-install 
+  871  source install/setup.bash
+  872  ros2 launch ros2_control_demo_example_2 diffbot.launch.py 
+  873  ros2 launch ros2_control_demo_example_2 diffbot2.launch.py 
+  874  ls
+  875  rm -r build install log
+  876  colcon build --symlink-install 
+  877  source install/setup.bash
+  878  ros2 launch ros2_control_demo_example_2 diffbot2.launch.py 
+  879  colcon build --symlink-install 
+  880  source install/setup.bash
+  881  ros2 launch ros2_control_demo_example_2 diffbot2a.launch.py 
+  882  colcon build --symlink-install 
+  883  source install/setup.bash
+  884  ros2 launch ros2_control_demo_example_2 diffbot2a.launch.py 
+  885  colcon build --symlink-install 
+  886  source install/setup.bash
+  887  ros2 launch ros2_control_demo_example_2 diffbot2a.launch.py 
+  888  ros2 run controller_manager ros2_control_node 
+  889  colcon build --symlink-install 
+  890  source install/setup.bash
+  891  ros2 launch ros2_control_demo_example_2 diffbot2a.launch.py 
+  892  /opt/ros/humble/lib/controller_manager/ros2_control_node --ros-args --params-file /home/administrator/robot_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/config/diffbot_controllers.yaml -r ~/robot_description:=/robot_description'
+  893  /opt/ros/humble/lib/controller_manager/ros2_control_node --ros-args --params-file /home/administrator/robot_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/config/diffbot_controllers.yaml -r ~/robot_description:=/robot_description
+  894  ros2 launch ros2_control_demo_example_2 diffbot2.launch.py 
+  895  /opt/ros/humble/lib/controller_manager/ros2_control_node --ros-args --params-file /home/administrator/robot_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/config/diffbot_controllers.yaml -r ~/robot_description:=/robot_description
+  896  colcon build --symlink-install 
+  897  source install/setup.bash
+  898  ros2 launch ros2_control_demo_example_2 diffbot2a.launch.py 
+  899  colcon build --symlink-install 
+  900  source install/setup.bash
+  901  ros2 launch ros2_control_demo_example_2 diffbot2a.launch.py 
+  902  colcon build --symlink-install 
+  903  source install/setup.bash
+  904  ros2 launch ros2_control_demo_example_2 diffbot2a.launch.py 
+  905  colcon build --symlink-install 
+  906  source install/setup.bash
+  907  ros2 launch ros2_control_demo_example_2 diffbot2a.launch.py 
+  908  colcon build --symlink-install 
+  909  source install/setup.bash
+  910  ros2 launch ros2_control_demo_example_2 diffbot2a.launch.py 
+  911  ros2 launch ros2_control_demo_example_2 diffbot2.launch.py 
+  912  sudo poweroff
+  913  ls
+  914  cd robot_ws/
+  915  ls
+  916  source install/setup.bash
+  917  ros2 launch ros2_control_demo_example_2 diffbot2c.launch.py 
+  918  ros2 launch ros2_control_demo_example_2 diffbot2c
+  919  ros2 launch ros2_control_demo_example_2 diffbot2c.launch.py 
+  920  ls
+  921  ros2 launch ros2_control_demo_example_2 diffbot2c.launch.py 
+  922  ls src
+  923  ls src/ros2_control_demo_description/
+  924  ls src/example_2/
+  925  ls src/example_2/description/
+  926  ls src/example_2/description/launch/
+  927  colcon build --symlink-install 
+  928  source install/setup.bash
+  929  ros2 launch ros2_control_demo_example_2 diffbot2c.launch.py 
+  930  ros2 topic list
+  931  /opt/ros/humble/lib/controller_manager/spawner 
+  932  /opt/ros/humble/lib/controller_manager/spawner joint_state_broadcaster --controller-manager /controller_manager --ros-args
+  933  sudo apt install ros-humble-controller-manager
+  934  ros2 run controller_manager swapner -h
+  935  ros2 run controller_manager swapner 
+  936  ros2 run controller_manager spawner -h
+  937  ros2 run controller_manager spawner
+  938  ros2 run controller_manager spawner --load_only
+  939  ros2 topic list
+  940  ros2 launch ros2_control_demo_example_2 diffbot2c.launch.py 
+  941  <pre>/opt/ros/humble/lib/controller_manager/spawner joint_state_broadcaster --controller-manager /controller_manager --ros-args</pre>
+  942  /opt/ros/humble/lib/controller_manager/spawner joint_state_broadcaster --controller-manager /controller_manager --ros-args</pre>
+  943  /opt/ros/humble/lib/controller_manager/spawner joint_state_broadcaster --controller-manager /controller_manager --ros-args
+  944  sudo apt install ros-humble-ros2-controllers
+  945  sudo apt install ros-humble-ros2-control
+  946  sudo apt update
+  947  sudo apt upgrade
+  948  sudo reboot
+  949  cd robot_ws
+  950  ls
+  951  cd ..
+  952  vi .bashrc
+  953  source .bashrc
+  954  cd robot_ws
+  955  ls
+  956  cd src
+  957  ls
+  958  vi README.md
+  959  sudo poweroff
+  960  ls
+  961  cd robot_ws
+  962  ls
+  963  cd src
+  964  ls
+  965  history
+  966  history > history.20240812.txt
