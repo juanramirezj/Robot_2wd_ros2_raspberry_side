@@ -41,6 +41,8 @@ public:
     timeout_ms_ = timeout_ms;
     serial_conn_.Open(serial_device);
     serial_conn_.SetBaudRate(convert_baud_rate(baud_rate));
+
+    std::cout << "Serial device=" << serial_device << " baud rate =" << baud_rate << " timeout=" << timeout_ms << std::endl; 
   }
 
   void disconnect()
@@ -54,7 +56,7 @@ public:
   }
 
 
-  std::string send_msg(const std::string &msg_to_send, bool print_output = true)
+  std::string send_msg(const std::string &msg_to_send, bool print_output = false)
   {
     serial_conn_.FlushIOBuffers(); // Just in case
     serial_conn_.Write(msg_to_send);
@@ -72,7 +74,8 @@ public:
 
     if (print_output)
     {
-      std::cout << "Sent: " << msg_to_send << " Recv: " << response << std::endl;
+      std::cout << "*Sent: " << msg_to_send  << std::endl;
+      std::cout << " Recv= " << response << std::endl;
     }
 
     return response;

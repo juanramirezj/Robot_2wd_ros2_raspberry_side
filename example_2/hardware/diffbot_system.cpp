@@ -38,8 +38,8 @@ hardware_interface::CallbackReturn DiffBotSystemHardware::on_init(
   }
 
 
-  cfg_.left_wheel_name = info_.hardware_parameters["left_wheel_name"];
-  cfg_.right_wheel_name = info_.hardware_parameters["right_wheel_name"];
+  cfg_.left_wheel_name = info_.hardware_parameters["left_wheel_names"];
+  cfg_.right_wheel_name = info_.hardware_parameters["right_wheel_names"];
   cfg_.loop_rate = std::stof(info_.hardware_parameters["loop_rate"]);
   cfg_.device = info_.hardware_parameters["device"];
   cfg_.baud_rate = std::stoi(info_.hardware_parameters["baud_rate"]);
@@ -186,12 +186,12 @@ hardware_interface::return_type DiffBotSystemHardware::read(
 hardware_interface::return_type ros2_control_demo_example_2 ::DiffBotSystemHardware::write(
   const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
-  RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "Writing...");
+  // RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "Writing...");
   int motor_l_counts_per_loop = wheel_l_.cmd / wheel_l_.rads_per_count / cfg_.loop_rate;
   int motor_r_counts_per_loop = wheel_r_.cmd / wheel_r_.rads_per_count / cfg_.loop_rate;
   
   comms_.set_motor_values(motor_l_counts_per_loop, motor_r_counts_per_loop);
-  RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "Joints successfully written!");
+  // RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "Joints successfully written!");
  
   return hardware_interface::return_type::OK;
 }
