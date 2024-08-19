@@ -23,6 +23,17 @@ from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
+    
+    #lidar params
+    channel_type =  LaunchConfiguration('channel_type', default='serial')
+    serial_port = LaunchConfiguration('serial_port', default='/dev/ttyUSB0')
+    #serial_port = LaunchConfiguration('serial_port', default='/dev/ttyAMA0')
+    serial_baudrate = LaunchConfiguration('serial_baudrate', default='115200')
+    frame_id = LaunchConfiguration('frame_id', default='laser')
+    inverted = LaunchConfiguration('inverted', default='false')
+    angle_compensate = LaunchConfiguration('angle_compensate', default='true')
+    scan_mode = LaunchConfiguration('scan_mode', default='Sensitivity')
+    
     # Declare arguments
     declared_arguments = []
     declared_arguments.append(
@@ -70,6 +81,29 @@ def generate_launch_description():
     )
     rviz_config_file = PathJoinSubstitution(
         [FindPackageShare("ros2_control_demo_description"), "diffbot/rviz", "diffbot.rviz"]
+    )
+    
+    camera_node = Node(
+            package='v4l2_camera',
+            executable='v4l2_camera_node',
+            name='camera_node',
+            parameters=[{'image_size':[320,240],
+                         'camera_frame_id':"camera_optical_link",
+                         'output_encoding':"rgb8"}],
+                
+    )
+    
+    lidar_node = Node(
+            package='sllidar_ros2',
+            executable='sllidar_node',
+            name='sllidar_node',
+            parameters=[{'channel_type':channel_type,
+                         'serial_port': serial_port, 
+                         'serial_baudrate': serial_baudrate, 
+                         'frame_id': frame_id,
+                         'inverted': inverted, 
+                         'angle_compensate': angle_compensate}],
+            output='screen',
     )
 
     control_node = Node(
@@ -128,7 +162,9 @@ def generate_launch_description():
     )
 
     nodes = [
+        camera_node,
         control_node,
+        lidar_node,
         robot_state_pub_node,
         joint_state_broadcaster_spawner,
         delay_rviz_after_joint_state_broadcaster_spawner,
