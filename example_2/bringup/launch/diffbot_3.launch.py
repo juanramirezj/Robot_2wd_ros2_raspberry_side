@@ -29,7 +29,7 @@ def generate_launch_description():
     serial_port = LaunchConfiguration('serial_port', default='/dev/ttyUSB0')
     #serial_port = LaunchConfiguration('serial_port', default='/dev/ttyAMA0')
     serial_baudrate = LaunchConfiguration('serial_baudrate', default='115200')
-    frame_id = LaunchConfiguration('frame_id', default='laser')
+    frame_id = LaunchConfiguration('frame_id', default='laser_frame')
     inverted = LaunchConfiguration('inverted', default='false')
     angle_compensate = LaunchConfiguration('angle_compensate', default='true')
     scan_mode = LaunchConfiguration('scan_mode', default='Sensitivity')
@@ -162,13 +162,14 @@ def generate_launch_description():
     )
 
     nodes = [
-        camera_node,
-        control_node,
-        lidar_node,
-        robot_state_pub_node,
-        joint_state_broadcaster_spawner,
-        delay_rviz_after_joint_state_broadcaster_spawner,
-        delay_robot_controller_spawner_after_joint_state_broadcaster_spawner,
+       # camera_node,
+       control_node,
+       # lidar_node,
+       robot_state_pub_node,
+       joint_state_broadcaster_spawner,
+       delay_robot_controller_spawner_after_joint_state_broadcaster_spawner,
+       # delay_rviz_after_joint_state_broadcaster_spawner,
+
     ]
 
     return LaunchDescription(declared_arguments + nodes)

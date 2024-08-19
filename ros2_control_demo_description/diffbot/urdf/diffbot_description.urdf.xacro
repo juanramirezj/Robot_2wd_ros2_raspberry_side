@@ -25,6 +25,17 @@
       </geometry>
     </collision>
 
+    <!-- BASE_FOOTPRINT LINK -->
+
+    <!-- <joint name="base_footprint_joint" type="fixed">
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}base_footprint"/>
+      <origin xyz="0 0 0" rcpy="0 0 0"/>
+    </joint>
+
+    <link name ="{prefix}base_footprint">
+    </link> -->
+
     <visual>
       <origin xyz="0 0 ${base_height/2}" rpy="0 0 0"/>
       <geometry>
@@ -168,7 +179,7 @@
         <geometry>
           <sphere radius="${caster_wheel_radius}"/>
         </geometry>
-        <material name="white"/>
+        <material name="blue"/>
       </visual>
 
       <inertial>
@@ -180,6 +191,30 @@
           izz="${caster_wheel_mass * 0.4 * (caster_wheel_radius * caster_wheel_radius)}"/>
         </inertial>
       </link>
+
+
+
+    <!-- <joint name="laser_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="laser_frame"/>
+        <origin xyz="0.1 0 0.175" rpy="0 0 0"/>
+
+    </joint>
+
+    <link name="laser_frame">
+        <visual>
+            <geometry>
+                <cylinder length="0.04" radius="0.05"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.05" length="0.04"/>
+            </geometry>
+        </collision>
+
+    </link> -->
 
   </xacro:macro>
 
