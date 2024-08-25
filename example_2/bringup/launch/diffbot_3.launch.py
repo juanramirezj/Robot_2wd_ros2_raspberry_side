@@ -63,6 +63,7 @@ def generate_launch_description():
             " ",
             PathJoinSubstitution(
                 [FindPackageShare("ros2_control_demo_example_2"), "urdf", "diffbot.urdf.xacro"]
+                # [FindPackageShare("ros2_control_demo_description"), "diffbot/urdf", "diffbot_description.urdf.xacro"]
             ),
             " "
             #,
@@ -70,7 +71,10 @@ def generate_launch_description():
             #use_mock_hardware,
         ]
     )
+ 
     robot_description = {"robot_description": robot_description_content}
+    print("************ Robot description content: ******************")
+    print (robot_description)
 
     robot_controllers = PathJoinSubstitution(
         [
@@ -162,13 +166,13 @@ def generate_launch_description():
     )
 
     nodes = [
-       # camera_node,
+       camera_node,
        control_node,
-       # lidar_node,
+       lidar_node,
        robot_state_pub_node,
        joint_state_broadcaster_spawner,
        delay_robot_controller_spawner_after_joint_state_broadcaster_spawner,
-       # delay_rviz_after_joint_state_broadcaster_spawner,
+       delay_rviz_after_joint_state_broadcaster_spawner,
 
     ]
 
