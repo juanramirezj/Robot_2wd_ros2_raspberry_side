@@ -125,7 +125,10 @@ def generate_launch_description():
         output="both",
         parameters=[robot_description],
         remappings=[
-            ("/diff_drive_controller/cmd_vel_unstamped", "/cmd_vel"),
+           # ("/diff_drive_controller/cmd_vel_unstamped", "/cmd_vel"),
+            # ("/diffbot_base_controller/cmd_vel_unstamped", "/cmd_vel"),
+            # ("/diffbot_base_controller/odom","/odom"),
+            
         ],
     )
     rviz_node = Node(
